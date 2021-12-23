@@ -6,6 +6,9 @@ const { Schema } = mongose
 const propertySchema = new Schema({
     name: String,
     location: String,
-    aviable: Boolean
+    description: String,
+    image: String
 })
-const Model = mongoose.model('Property', propertySchema)
+const Property = mongoose.model('Property', propertySchema)
+
+module.exports = Property
