@@ -41,9 +41,7 @@ app.post("/property", (req, res) => {
         if(err){
             throw new Error('Error creating the new property')
         } 
-        res.json({
-            property: Property.find({ name: req.query.name })
-        })
+        res.end('Property inserted correctly')
     })
 })
 
