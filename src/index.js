@@ -1,4 +1,5 @@
 const express = require('express')
+const db = require('./connection.js')
 const app = express()
 
 
@@ -11,10 +12,16 @@ app.get("/", (req, res) => {
 
 app.get("/properties", (req, res) => {
     res.json({
-        properties: [
-           
-        ]
+        properties: db.collection('properties').find({})
     })
+})
+
+app.get("/properties/:id", (req, res) => {
+
+})
+
+app.post("/property", (req, res) => {
+
 })
 
 
