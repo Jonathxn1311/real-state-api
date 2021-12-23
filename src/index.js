@@ -7,8 +7,7 @@ const app = express()
 app.set("port", 3000)
 
 app.get("/", (req, res) => {
-    res.status(404)
-    res.redirect("/properties")
+    
 })
 
 app.get("/properties", (req, res) => {
