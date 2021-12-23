@@ -4,6 +4,7 @@ const app = express()
 
 
 app.set("port", 3000)
+app.set("MongoPort", 27017)
 
 app.get("/", (req, res) => {
     res.status(404)
