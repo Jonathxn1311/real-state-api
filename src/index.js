@@ -4,10 +4,11 @@ const Property = require('./models/property.js')
 const app = express()
 
 
-app.set("port", 30100)
+app.set("port", 3000)
+app.use(express.static(__dirname))
 
 app.get("/", (req, res) => {
-    
+    res.sendFile(__dirname + '/public/index.html')
 })
 
 app.get("/properties", async (req, res) => {
@@ -30,7 +31,6 @@ app.get("/property/:id", (req, res) => {
 })
 
 app.post("/property", (req, res) => {
-
     const NewProperty = new Property()
     NewProperty.name = req.query.name
     NewProperty.location = req.query.location
