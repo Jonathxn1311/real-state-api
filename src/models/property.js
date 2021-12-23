@@ -1,5 +1,10 @@
-const db = requiere("../connection.js")
+const db = require("../connection.js")
+const mongoose = require("mongoose")
+const { Schema } = mongose
 
-db.createCollection("properties", (err, db) => {
-    
+const propertySchema = new Schema({
+    name: String,
+    location: String,
+    aviable: Boolean
 })
+const Model = mongoose.model('Property', propertySchema)
