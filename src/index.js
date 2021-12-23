@@ -5,8 +5,8 @@ const app = express()
 app.set("port", 3000)
 
 app.get("/", (req, res) => {
-    res.status(200)
-    res.end("Bienvenido a la real-state-api")
+    res.status(404)
+    res.redirect("/properties")
 })
 
 app.get("/properties", (req, res) => {
