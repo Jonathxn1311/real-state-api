@@ -45,6 +45,16 @@ app.post("/property", (req, res) => {
     })
 })
 
+app.delete('/property/:id', (req, res) => {
+    Property.deleteOne({ _id: req.params.id }, (err) => {
+        if (err){
+            res.end('An error ocurred while deleting the property')
+        } else {
+            res.end('Property deleted correctly')
+        }
+    })
+})
+
 
 app.listen(app.get("port"), () => {
     console.log(`Aplicacion escuchando por el puerto ${app.get("port")}`)
