@@ -13,18 +13,19 @@ app.get("/", (req, res) => {
 
 app.get("/properties", (req, res) => {
     res.json({
-        properties: [
-
-        ]
+        properties: Property.find({})
     })
 })
 
 app.get("/properties/:id", (req, res) => {
-
+    const ReturnProperty = Property.find({_id: req.params.id})
+    res.json({
+        Property: ReturnProperty
+    })
 })
 
 app.post("/property", (req, res) => {
-    const {name, location, description, image} = req.params
+    const {name, location, description, image} = req.query
 
     const NewProperty = new Property({
         name,
@@ -32,6 +33,7 @@ app.post("/property", (req, res) => {
         description,
         image
     })
+    NewProperty.save()
 })
 
 
