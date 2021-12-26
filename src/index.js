@@ -20,7 +20,7 @@ app.post("/property", routes.insertProperty )
 
 app.delete('/property/:id', routes.deleteProperty)
 
-app.put('/property/:id', routes.updateProperty )
+app.put('/property/:id', routes.updatePropertyName )
 
 app.listen(app.get("port"), () => {
     console.log(`Aplicacion escuchando por el puerto ${app.get("port")}`)

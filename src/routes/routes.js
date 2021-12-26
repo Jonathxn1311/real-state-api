@@ -14,12 +14,30 @@ const getProperties = async (req, res) => {
     }) 
 }
 
-const getPropertiesByCategory = (req, res) => {
+const getPropertiesByCategory = async (req, res) => {
+    const category = req.params.category
+    const resObject = {
+        category,
+        properties: await Property.find({ category })
+    }
 
+    console.log('Se solicito ver la propiedades de categoria ', category)
+    console.log(resObject)
+    res.json(resObject)
 }
 
-const getPropertiesByCategoryAndName = (req, res) => {
-
+const getPropertiesByCategoryAndName = async (req, res) => {
+    const category = req.params.category
+    const name = req.params.name    
+    const resObject = {
+        name,
+        category,
+        properties: await Property.find({ name, category })
+    }
+    console.log(`Se solicito la propiedad de categoria ${category} y nombre ${name}`)
+    console.log(resObject)
+    res.json(resObject)
+    res.end()
 }
 
 const getPropertyById = (req, res) => {
@@ -90,8 +108,17 @@ const deleteProperty = async (req, res) => {
     })
 }
 
-const updateProperty = (req, res) => {
+const updatePropertyName = async (req, res) => {
+    const _id = req.params.id
+    const name = req.query.name
+    const description = req.query.description
+    const location = req.query.location
+    const photos = req.query.phoyos
+    const category = req.query.category
 
+    const response = await Property.updateOne({ _id }, { $set: { name, description, location, photos, category } })
+    res.json(response)
+    console.log(response)
 }
 
 
@@ -103,5 +130,5 @@ module.exports = {
     getPropertyById,
     insertProperty,
     deleteProperty,
-    updateProperty
+    updatePropertyName
 }
