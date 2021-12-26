@@ -6,7 +6,8 @@ const Property = new Schema({
     name: String,
     location: String,
     description: String,
-    image: String
+    category: String,
+    photos: Array
 })
  
 module.exports = mongoose.model('Property', Property)

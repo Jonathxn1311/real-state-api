@@ -13,6 +13,15 @@ const getProperties = async (req, res) => {
         properties: await Property.find({})
     }) 
 }
+
+const getPropertiesByCategory = (req, res) => {
+
+}
+
+const getPropertiesByCategoryAndName = (req, res) => {
+
+}
+
 const getPropertyById = (req, res) => {
     const query = Property.find({_id: req.params.id})
     query.exec((err, property) => {
@@ -31,7 +40,8 @@ const insertProperty = async (req, res) => {
     NewProperty.name = req.query.name
     NewProperty.location = req.query.location
     NewProperty.description = req.query.description
-    NewProperty.image = req.query.image
+    NewProperty.category = req.query.category
+    NewProperty.photos = req.query.photos
 
     NewProperty.save((err) => {
         if(err){
@@ -80,11 +90,18 @@ const deleteProperty = async (req, res) => {
     })
 }
 
+const updateProperty = (req, res) => {
+
+}
+
 
 module.exports = {
     realState,
     getProperties,
+    getPropertiesByCategory,
+    getPropertiesByCategoryAndName,
     getPropertyById,
     insertProperty,
-    deleteProperty
+    deleteProperty,
+    updateProperty
 }
