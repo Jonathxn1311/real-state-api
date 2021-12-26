@@ -16,4 +16,6 @@ app.post("/property", routes.insertProperty )
 
 app.delete('/property/:id', routes.deleteProperty)
 
-app.listen(app.get("port"), routes.portListenCallback)
+app.listen(app.get("port"), () => {
+    console.log(`Aplicacion escuchando por el puerto ${app.get("port")}`)
+})

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Property = require('./models/property.js')
+const Property = require('../models/property.js')
 
 const realState = (req, res) => {
     res.end()
