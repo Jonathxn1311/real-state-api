@@ -80,17 +80,11 @@ const deleteProperty = async (req, res) => {
     })
 }
 
-const portListenCallback = () => {
-    console.log(`Aplicacion escuchando por el puerto ${app.get("port")}`)
-}
-
-
 
 module.exports = {
     realState,
     getProperties,
     getPropertyById,
     insertProperty,
-    deleteProperty,
-    portListenCallback
+    deleteProperty
 }
